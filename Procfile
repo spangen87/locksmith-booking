@@ -1,0 +1,1 @@
+web: gunicorn locksmith_booking.wsgi
