@@ -43,10 +43,14 @@
               My account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              {% if user.is_authenticated %}
               <li><a class="dropdown-item" href="#">My Account</a></li>
-              <li><a class="dropdown-item" href="#">Create Account</a></li>
-              <li><a class="dropdown-item" href="#">Login</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+              {% else %}
+              <li><a class="dropdown-item" href="{% url 'account_signup' %}">Create Account</a></li>
+              <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+              {% endif %}
+              
             </ul>
           </li>
         </ul>
