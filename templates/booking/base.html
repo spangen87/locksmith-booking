@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -31,7 +32,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Booking</a>
+            <a class="nav-link" href="{% url 'place_booking' %}">Booking</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
@@ -56,6 +57,7 @@
   <main class="flex-shrink-0 main-bg">
     {% block content %}
     <!-- Content here -->
+    
     {% endblock content %}
   
   </main>
