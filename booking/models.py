@@ -11,7 +11,7 @@ class PlaceBooking(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     approved = models.BooleanField(default=False)
-    date_for_visit = models.DateField()
+    date_for_visit = models.DateField(null=True)
     time_for_visit = models.TimeField()
 
     class Meta:
