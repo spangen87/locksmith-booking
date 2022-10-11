@@ -1,0 +1,23 @@
+{% extends "booking/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <table>
+        {% for booking in bookings %}
+        <tr>
+          <td>{{ booking.date_for_visit }}</td>
+          <td>{{ booking.time_for_visit }}</td>
+          <td>{{ booking.description }}</td>
+          <td>{{ booking.approved }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

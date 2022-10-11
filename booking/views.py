@@ -15,4 +15,12 @@ def place_booking(request):
             return redirect('place_booking')
     form = BookingForm()
     context = {'form': form}
-    return render(request, 'booking/place_booking.html', context)        
+    return render(request, 'booking/place_booking.html', context)       
+
+
+def view_booking(request):
+    bookings = PlaceBooking.objects.all()
+    context = {
+        'bookings': bookings
+    }
+    return render(request, 'booking/my_account.html', context)
