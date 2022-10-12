@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import PlaceBooking
 from .forms import BookingForm
 
@@ -28,3 +28,9 @@ def view_booking(request):
         'bookings': bookings,
     }
     return render(request, 'booking/my_account.html', context)
+
+
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(PlaceBooking, id=booking_id)
+    booking.delete()
+    return render(request, 'booking/my_account.html')
