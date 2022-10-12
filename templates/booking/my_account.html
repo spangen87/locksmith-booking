@@ -5,33 +5,72 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6 mx-auto">
-      <table>
-        
-        {% if user.is_staff %}
-        {{ user.username }}
-        {% for booking in bookings %}
-        
-        <tr>
-          <td>{{ booking.date_for_visit }}</td>
-          <td>{{ booking.time_for_visit }}</td>
-          <td>{{ booking.description }}</td>
-          <td>{{ booking.approved }}</td>
-        </tr>
 
-        {% endfor %}
-        {% else %}
-        {% for booking in bookings %}
-        
-        <tr>
-          <td>{{ booking.date_for_visit }}</td>
-          <td>{{ booking.time_for_visit }}</td>
-          <td>{{ booking.description }}</td>
-          <td>{{ booking.approved }}</td>
-        </tr>
-        {% endfor %}
-        {% endif %}
-      </table>
 
+      {% if user.is_staff %}
+      {{ user.username }}
+      {% for booking in bookings %}
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h5 class="card-title">Booking number: {{ booking.id }}</h5>
+          <div class="card-text">
+            <table class="table">
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Description</th>
+              </tr>
+              <tr>
+                <td>{{ booking.date_for_visit }}</td>
+                <td>{{ booking.time_for_visit }}</td>
+                <td>{{ booking.description }}</td>
+
+              </tr>
+            </table>
+            {% if booking.approved is True %}
+            <p class="text-primary"><strong>Approved</strong></p>
+            {% else %}
+            <p class="text-warning"><strong>Pendning</strong></p>
+            {% endif %}
+          </div>
+          <a href="#" class="btn btn-primary">Change</a>
+          <a href="#" class="btn btn-danger">Cancel</a>
+        </div>
+      </div>
+
+
+      {% endfor %}
+      {% else %}
+      {% for booking in bookings %}
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h5 class="card-title">Booking number: {{ booking.id }}</h5>
+          <div class="card-text">
+            <table class="table">
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Description</th>
+              </tr>
+              <tr>
+                <td>{{ booking.date_for_visit }}</td>
+                <td>{{ booking.time_for_visit }}</td>
+                <td>{{ booking.description }}</td>
+
+              </tr>
+            </table>
+            {% if booking.approved is True %}
+            <p class="text-primary"><strong>Approved</strong></p>
+            {% else %}
+            <p class="text-warning"><strong>Pendning</strong></p>
+            {% endif %}
+          </div>
+          <a href="#" class="btn btn-primary">Change</a>
+          <a href="#" class="btn btn-danger">Cancel</a>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 </div>

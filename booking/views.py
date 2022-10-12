@@ -8,14 +8,15 @@ def get_index(request):
 
 
 def place_booking(request):
+    booking = PlaceBooking(user=request.user)
     if request.method == 'POST':
-        form = BookingForm(request.POST)
+        form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
             return redirect('place_booking')
     form = BookingForm()
     context = {'form': form}
-    return render(request, 'booking/place_booking.html', context)       
+    return render(request, 'booking/place_booking.html', context)   
 
 
 def view_booking(request):
