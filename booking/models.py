@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class PlaceBooking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     address = models.TextField()

@@ -19,8 +19,11 @@ def place_booking(request):
 
 
 def view_booking(request):
-    bookings = PlaceBooking.objects.all()
+    if request.user.is_staff:
+        bookings = PlaceBooking.objects.all()
+    else:
+        bookings = request.user.bookings.all()
     context = {
-        'bookings': bookings
+        'bookings': bookings,
     }
     return render(request, 'booking/my_account.html', context)

@@ -6,7 +6,22 @@
   <div class="row">
     <div class="col-sm-6 mx-auto">
       <table>
+        
+        {% if user.is_staff %}
+        {{ user.username }}
         {% for booking in bookings %}
+        
+        <tr>
+          <td>{{ booking.date_for_visit }}</td>
+          <td>{{ booking.time_for_visit }}</td>
+          <td>{{ booking.description }}</td>
+          <td>{{ booking.approved }}</td>
+        </tr>
+
+        {% endfor %}
+        {% else %}
+        {% for booking in bookings %}
+        
         <tr>
           <td>{{ booking.date_for_visit }}</td>
           <td>{{ booking.time_for_visit }}</td>
@@ -14,6 +29,7 @@
           <td>{{ booking.approved }}</td>
         </tr>
         {% endfor %}
+        {% endif %}
       </table>
 
     </div>
