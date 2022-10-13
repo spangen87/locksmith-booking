@@ -20,8 +20,9 @@
 <body class="d-flex flex-column h-100">
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="https://res.cloudinary.com/dmihylmnz/image/upload/v1665056023/BEST_logotyp_liten_ieabii.png" alt="" height="40px" class="d-inline-block align-text-top"></a>
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="https://res.cloudinary.com/dmihylmnz/image/upload/v1665056023/BEST_logotyp_liten_ieabii.png" alt=""
+          height="40px" class="d-inline-block align-text-top"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,7 +41,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              My account
+              Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {% if user.is_authenticated %}
@@ -50,38 +51,44 @@
               <li><a class="dropdown-item" href="{% url 'account_signup' %}">Create Account</a></li>
               <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
               {% endif %}
-              
             </ul>
           </li>
         </ul>
       </div>
+      {% if user.is_authenticated %}
+      <span class="pull-right">
+        Logged in as: <strong>{{ user.username }}</strong>
+      </span>
+      {% endif %}
     </div>
   </nav>
 
   <main class="flex-shrink-0 main-bg">
     {% block content %}
     <!-- Content here -->
-    
+
     {% endblock content %}
-  
+
   </main>
 
-    <!-- Footer -->
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mt-auto">
-      <p class="col-md-4 mb-0 text-muted">© 2022 Best Lås och Säkerhetssystem AB</p>
-  
-      <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <img src="https://res.cloudinary.com/dmihylmnz/image/upload/v1665056023/BEST_logotyp_liten_ieabii.png" alt="Logo" height="40">
-      </a>
-  
-      <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-      </ul>
-    </footer>
+  <!-- Footer -->
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mt-auto">
+    <p class="col-md-4 mb-0 text-muted">© 2022 Best Lås och Säkerhetssystem AB</p>
+
+    <a href="/"
+      class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <img src="https://res.cloudinary.com/dmihylmnz/image/upload/v1665056023/BEST_logotyp_liten_ieabii.png" alt="Logo"
+        height="40">
+    </a>
+
+    <ul class="nav col-md-4 justify-content-end">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+  </footer>
 </body>
 
 </html>
