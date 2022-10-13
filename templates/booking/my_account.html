@@ -8,9 +8,8 @@
 
 
       {% if user.is_staff %}
-      {{ user.username }}
       {% for booking in bookings %}
-      <div class="card" style="width: 100%;">
+      <div class="card" style="width: 100%; margin-bottom: 10px;">
         <div class="card-body">
           <h5 class="card-title">Booking number: {{ booking.id }}</h5>
           <div class="card-text">
@@ -24,7 +23,26 @@
                 <td>{{ booking.date_for_visit }}</td>
                 <td>{{ booking.time_for_visit }}</td>
                 <td>{{ booking.description }}</td>
-
+              </tr>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+              </tr>
+              <tr>
+                <td>{{ booking.first_name }} {{ booking.last_name }}</td>
+                <td>{{ booking.address }}</td>
+                <td>0{{ booking.phone }}</td>
+              </tr>
+              <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Username</th>
+                <th scope="col">Created On</th>
+              </tr>
+              <tr>
+                <td>{{ booking.email }}</td>
+                <td>{{ booking.user }}</td>
+                <td>{{ booking.created_on}}</td>
               </tr>
             </table>
             {% if booking.approved is True %}
