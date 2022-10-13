@@ -8,10 +8,10 @@ def get_index(request):
 
 
 def place_booking(request):
-    booking = PlaceBooking(user=request.user)
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
+            booking = PlaceBooking(user=request.user)
             form.save()
             return redirect('place_booking')
     form = BookingForm()
