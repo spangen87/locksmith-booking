@@ -34,3 +34,17 @@ def delete_booking(request, booking_id):
     booking = get_object_or_404(PlaceBooking, id=booking_id)
     booking.delete()
     return render(request, 'booking/my_account.html')
+
+
+def edit_booking(request, booking_id):
+    booking = get_object_or_404(PlaceBooking, id=booking_id)
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return render(request, 'booking/my_account.html')
+    form = BookingForm(instance=booking)
+    context = {
+            'form': form
+        }
+    return render(request, 'booking/edit_booking.html', context)
