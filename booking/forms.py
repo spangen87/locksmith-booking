@@ -1,4 +1,4 @@
-from .models import PlaceBooking
+from .models import PlaceBooking, Review
 from django import forms
 
 
@@ -22,3 +22,9 @@ class BookingForm(forms.ModelForm):
             'date_for_visit': DateInput(),
             'time_for_visit': TimeInput()
         }
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ('review',)
