@@ -13,38 +13,46 @@
         <div class="card-body">
           <h5 class="card-title">Booking number: {{ booking.id }}</h5>
           <div class="card-text">
-            <table class="table table-striped table-hover">
-              <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Description</th>
-              </tr>
-              <tr>
-                <td>{{ booking.date_for_visit }}</td>
-                <td>{{ booking.time_for_visit }}</td>
-                <td>{{ booking.description }}</td>
-              </tr>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Address</th>
-                <th scope="col">Phone</th>
-              </tr>
-              <tr>
-                <td>{{ booking.first_name }} {{ booking.last_name }}</td>
-                <td>{{ booking.address }}</td>
-                <td>0{{ booking.phone }}</td>
-              </tr>
-              <tr>
-                <th scope="col">Email</th>
-                <th scope="col">Username</th>
-                <th scope="col">Created On</th>
-              </tr>
-              <tr>
-                <td>{{ booking.email }}</td>
-                <td>{{ booking.user }}</td>
-                <td>{{ booking.created_on}}</td>
-              </tr>
-            </table>
+            <div class="table-responsive">
+              <table class="table table-striped table-hover">
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                </tr>
+                <tr>
+                  <td>{{ booking.date_for_visit }}</td>
+                  <td>{{ booking.time_for_visit }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Address</th>
+
+                </tr>
+                <tr>
+                  <td>{{ booking.first_name }} {{ booking.last_name }}</td>
+                  <td>{{ booking.address }}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="col">Email</th>
+                  <th scope="col">Created On</th>
+                </tr>
+                <tr>
+                  <td>{{ booking.email }}</td>
+                  <td>{{ booking.created_on}}</td>
+                </tr>
+                <tr>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Username</th>
+                </tr>
+                <tr>
+                  <td>0{{ booking.phone }} <a href="tel:0046{{ booking.phone }}">Call</a></td>
+                  <td>{{ booking.user }}</td>
+                </tr>
+              </table>
+              <h4>Description</h4>
+              <p>{{ booking.description }}</p>
+            </div>
             {% if booking.approved is True %}
             <p class="text-primary"><strong>Approved</strong></p>
             {% else %}
