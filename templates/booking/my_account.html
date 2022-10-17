@@ -61,6 +61,11 @@
           </div>
           <a href="/edit_booking/{{ booking.id }}" class="btn btn-primary">Change</a>
           <a href="/delete/{{ booking.id }}" class="btn btn-danger">Cancel</a>
+          {% if booking.approved is False %}
+          <a href="/approve/{{ booking.id }}" class="btn btn-success">Confirm Booking</a>
+          {% else %}
+          <a href="/approve/{{ booking.id }}" class="btn btn-warning">Withdraw Confirmation</a>
+          {% endif %}
         </div>
       </div>
 

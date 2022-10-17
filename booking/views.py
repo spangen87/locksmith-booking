@@ -48,3 +48,10 @@ def edit_booking(request, booking_id):
             'form': form
         }
     return render(request, 'booking/edit_booking.html', context)
+
+
+def approve_booking(request, booking_id):
+    booking = get_object_or_404(PlaceBooking, id=booking_id)
+    booking.approved = not booking.approved
+    booking.save()
+    return render(request, 'booking/my_account.html')
