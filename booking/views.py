@@ -11,7 +11,7 @@ def place_booking(request):
     if request.method == 'POST':
         booking = PlaceBooking(user=request.user)
         form = BookingForm(request.POST, instance=booking)
-        if form.is_valid():   
+        if form.is_valid():
             form.save()
             return redirect('place_booking')
     form = BookingForm()

@@ -31,7 +31,7 @@
                 <tr>
                   <td>{{ booking.first_name }} {{ booking.last_name }}</td>
                   <td>{{ booking.address }}</td>
-                  
+
                 </tr>
                 <tr>
                   <th scope="col">Email</th>
@@ -72,26 +72,29 @@
         <div class="card-body">
           <h5 class="card-title">Booking number: {{ booking.id }}</h5>
           <div class="card-text">
-            <table class="table">
-              <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Description</th>
-              </tr>
-              <tr>
-                <td>{{ booking.date_for_visit }}</td>
-                <td>{{ booking.time_for_visit }}</td>
-                <td>{{ booking.description }}</td>
-
-              </tr>
-            </table>
+            <div class="table-responsive">
+              <table class="table">
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Created On</th>
+                </tr>
+                <tr>
+                  <td>{{ booking.date_for_visit }}</td>
+                  <td>{{ booking.time_for_visit }}</td>
+                  <td>{{ booking.created_on}}</td>
+                </tr>
+              </table>
+            </div>
+            <h4>Description</h4>
+            <p>{{ booking.description }}</p>
             {% if booking.approved is True %}
             <p class="text-primary"><strong>Approved</strong></p>
             {% else %}
             <p class="text-warning"><strong>Pendning</strong></p>
             {% endif %}
           </div>
-          <a href="#" class="btn btn-primary">Change</a>
+          <a href="/edit_booking/{{ booking.id }}" class="btn btn-primary">Change</a>
           <a href="/delete/{{ booking.id }}" class="btn btn-danger">Cancel</a>
         </div>
       </div>
