@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import PlaceBooking
-from .forms import BookingForm
+from .models import PlaceBooking, Review
+from .forms import BookingForm, ReviewForm
 
 # Create your views here.
 def get_index(request):
@@ -55,3 +55,16 @@ def approve_booking(request, booking_id):
     booking.approved = not booking.approved
     booking.save()
     return render(request, 'booking/my_account.html')
+
+
+def place_review(request):
+    if request.method == 'POST':
+        review = Review(user=request.user)
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            # form.instance.name = request.name.first_name  Denna måste lösas!!
+            form.save()
+            return redirect('place_booking')
+    form = ReviewForm()
+    context = {'form': form}
+    return render(request, 'booking/place_review.html', context)
