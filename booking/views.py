@@ -62,7 +62,7 @@ def place_review(request):
         review = Review(user=request.user)
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
-            # form.instance.name = request.name.first_name  Denna måste lösas!!
+            # form.instance.name = request.name  ????
             form.save()
             return redirect('place_booking')
     form = ReviewForm()
