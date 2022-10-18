@@ -105,8 +105,12 @@
             <p class="text-warning"><strong>Pendning</strong></p>
             {% endif %}
           </div>
+          {% if booking.approved is False %}
           <a href="/edit_booking/{{ booking.id }}" class="btn btn-primary">Change</a>
           <a href="/delete/{{ booking.id }}" class="btn btn-danger">Cancel</a>
+          {% else %}
+          <p class="text-muted">Your booking is approved and can't be changed. If there is any issues you need to call us.</p>
+          {% endif %}
         </div>
       </div>
       {% endfor %}
