@@ -7,12 +7,20 @@
   <div class="col-md-4 mx-auto">
     {% if user.is_authenticated %}
     <h3>Place your booking</h3>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+      <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
     <form method="post" style="margin-top: 1.3em;">
       {{ form | crispy }}
       {% csrf_token %}
       <p class="text-muted">The booking is only temporary until we have approved it. We will call you within 24 hours
         (monday - friday) and confirm the booking and get more details if necessary. <br>
-        If it is a urgent matter, please call our emergeny number at <a href="tel:00468000000">+468-000-000</a> instead.</p>
+        If it is a urgent matter, please call our emergeny number at <a href="tel:00468000000">+468-000-000</a> instead.
+      </p>
       <button type="submit" class="btn btn-primary btn-signup btn-lg">Submit</button>
     </form>
     {% else %}

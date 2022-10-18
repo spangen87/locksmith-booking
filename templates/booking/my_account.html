@@ -5,7 +5,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6 mx-auto">
-
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success">
+        <strong>{{message}}</strong>
+      </div>
+      {% endfor %}
+      {% endif %}
 
       {% if user.is_staff %}
       {% for booking in bookings %}

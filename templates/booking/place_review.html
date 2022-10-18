@@ -7,6 +7,13 @@
   <div class="col-md-4 mx-auto">
     {% if user.is_authenticated %}
     <h3>Give your review of our work</h3>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+      <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
     <form method="post" style="margin-top: 1.3em;">
       {{ form | crispy }}
       {% csrf_token %}

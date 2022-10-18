@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 from .models import PlaceBooking, Review
 from .forms import BookingForm, ReviewForm
 
 # Create your views here.
+
+
 def get_index(request):
     return render(request, 'booking/index.html')
 
@@ -13,10 +17,11 @@ def place_booking(request):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Booking placed successfully. Please allow up to 24 hours for callback.')
             return redirect('place_booking')
-    form = BookingForm()
-    context = {'form': form}
-    return render(request, 'booking/place_booking.html', context)   
+    else:
+        form = BookingForm()
+    return render(request, 'booking/place_booking.html', {'form': form})
 
 
 def view_booking(request):
@@ -33,7 +38,9 @@ def view_booking(request):
 def delete_booking(request, booking_id):
     booking = get_object_or_404(PlaceBooking, id=booking_id)
     booking.delete()
-    return render(request, 'booking/my_account.html')
+    messages.success(request, 'Booking deleted successfully.')
+    # return render(request, 'booking/my_account.html')
+    return redirect('my_account')
 
 
 def edit_booking(request, booking_id):
@@ -42,7 +49,8 @@ def edit_booking(request, booking_id):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-            return render(request, 'booking/my_account.html')
+            messages.success(request, 'Updated successfully!')
+            return redirect('my_account')
     form = BookingForm(instance=booking)
     context = {
             'form': form
@@ -64,7 +72,12 @@ def place_review(request):
         if form.is_valid():
             # form.instance.name = request.name  ????
             form.save()
-            return redirect('place_booking')
-    form = ReviewForm()
-    context = {'form': form}
+            messages.success(request, 'Review posted successfully. Waiting for approval.')
+            return redirect('place_review')
+    else:
+        form = ReviewForm()
+        context = {
+            'form': form,
+            'posted': True
+            }
     return render(request, 'booking/place_review.html', context)
