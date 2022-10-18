@@ -11,6 +11,10 @@ def get_index(request):
     return render(request, 'booking/index.html')
 
 
+def about(request):
+    return render(request, 'booking/about.html')
+
+
 def place_booking(request):
     if request.method == 'POST':
         booking = PlaceBooking(user=request.user)
