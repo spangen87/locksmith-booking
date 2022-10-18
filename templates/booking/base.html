@@ -44,7 +44,10 @@
               Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              {% if user.is_authenticated %}
+              {% if user.is_authenticated and user.is_staff %}  
+              <li><a class="dropdown-item" href="{% url 'my_account' %}">Dashboard</a></li>
+              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li> 
+              {% elif user.is_authenticated %}
               <li><a class="dropdown-item" href="{% url 'my_account' %}">My Bookings</a></li>
               <li><a class="dropdown-item" href="{% url 'place_review' %}">Give Review</a></li>
               <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>

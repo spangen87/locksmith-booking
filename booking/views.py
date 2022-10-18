@@ -62,7 +62,7 @@ def approve_booking(request, booking_id):
     booking = get_object_or_404(PlaceBooking, id=booking_id)
     booking.approved = not booking.approved
     booking.save()
-    return render(request, 'booking/my_account.html')
+    return redirect('my_account')
 
 
 def place_review(request):
