@@ -44,6 +44,11 @@ def delete_booking(request, booking_id):
     booking = get_object_or_404(PlaceBooking, id=booking_id)
     booking.delete()
     messages.success(request, 'Booking deleted successfully.')
+    subject = 'Your booking'
+    message = f'Hi {user.username}, your booking has been cancelled.'
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = [user.email, ]
+    send_mail( subject, message, email_from, recipient_list )
     return redirect('my_account')
 
 
@@ -66,7 +71,7 @@ def approve_booking(request, booking_id):
     booking = get_object_or_404(PlaceBooking, id=booking_id)
     booking.approved = not booking.approved
     booking.save()
-    send_mail('Test', 'Din bokning är godkänd', 'bestlasbooking@gmail.com', ['jarker@bestlas.se'])
+    send_mail('Test', 'Din bokning är godkänd', 'bestlasbooking@gmail.com', [PlaceBooking.email])
     return redirect('my_account')
 
 
