@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from .models import PlaceBooking, Review, User
 from .forms import BookingForm, ReviewForm, EditBooking
 
+
 # Create your views here.
 
 
@@ -43,11 +44,12 @@ def view_booking(request):
 def delete_booking(request, booking_id):
     booking = get_object_or_404(PlaceBooking, id=booking_id)
     booking.delete()
+    email = PlaceBooking.email
     messages.success(request, 'Booking deleted successfully.')
     subject = 'Your booking'
-    message = f'Hi {user.username}, your booking has been cancelled.'
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = [user.email, ]
+    message = f'Hi, your booking has been cancelled.'
+    email_from = 'bestlasbooking@gmail.com'
+    recipient_list = [email, ]
     send_mail(subject, message, email_from, recipient_list)
     return redirect('my_account')
 
