@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 
 class PlaceBooking(models.Model):
@@ -14,6 +15,11 @@ class PlaceBooking(models.Model):
     approved = models.BooleanField(default=False)
     date_for_visit = models.DateField(null=True)
     time_for_visit = models.TimeField()
+
+    def save(self, *args, **kwargs):
+        if self.date_for_visit < datetime.date.today():
+            raise ValidationError("The date cannot be in the past!")
+        super(PlaceBooking, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['created_on']

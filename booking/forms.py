@@ -1,5 +1,6 @@
 from .models import PlaceBooking, Review
 from django import forms
+import datetime
 
 
 class DateInput(forms.DateInput):
@@ -19,7 +20,17 @@ class BookingForm(forms.ModelForm):
         model = PlaceBooking
         fields = ('first_name', 'last_name', 'address', 'email', 'phone', 'description', 'date_for_visit', 'time_for_visit',)
         widgets = {
-            'date_for_visit': DateInput(),
+            'date_for_visit': DateInput(attrs={'min': datetime.date.today()+datetime.timedelta(days=2), 'max': ''}),
+            'time_for_visit': TimeInput()
+        }
+
+
+class EditBooking(forms.ModelForm):
+    class Meta:
+        model = PlaceBooking
+        fields = ('first_name', 'last_name', 'address', 'email', 'phone', 'description', 'date_for_visit', 'time_for_visit',)
+        widgets = {
+            'date_for_visit': DateInput(attrs={'min': datetime.date.today()}),
             'time_for_visit': TimeInput()
         }
 

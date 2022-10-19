@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import PlaceBooking, Review
-from .forms import BookingForm, ReviewForm
+from .forms import BookingForm, ReviewForm, EditBooking
 
 # Create your views here.
 
@@ -43,19 +43,18 @@ def delete_booking(request, booking_id):
     booking = get_object_or_404(PlaceBooking, id=booking_id)
     booking.delete()
     messages.success(request, 'Booking deleted successfully.')
-    # return render(request, 'booking/my_account.html')
     return redirect('my_account')
 
 
 def edit_booking(request, booking_id):
     booking = get_object_or_404(PlaceBooking, id=booking_id)
     if request.method == 'POST':
-        form = BookingForm(request.POST, instance=booking)
+        form = EditBooking(request.POST, instance=booking)
         if form.is_valid():
             form.save()
             messages.success(request, 'Updated successfully!')
             return redirect('my_account')
-    form = BookingForm(instance=booking)
+    form = EditBooking(instance=booking)
     context = {
             'form': form
         }
