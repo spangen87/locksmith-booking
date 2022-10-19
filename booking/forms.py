@@ -21,7 +21,7 @@ class BookingForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'address', 'email', 'phone', 'description', 'date_for_visit', 'time_for_visit',)
         widgets = {
             'date_for_visit': DateInput(attrs={'min': datetime.date.today()+datetime.timedelta(days=2), 'max': ''}),
-            'time_for_visit': TimeInput()
+            'time_for_visit': TimeInput(attrs={'step': '1800', 'min': '09:00:00', 'max': '16:00:00'})
         }
 
 
