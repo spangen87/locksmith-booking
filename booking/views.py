@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
-from .models import PlaceBooking, Review
+from .models import PlaceBooking, Review, User
 from .forms import BookingForm, ReviewForm, EditBooking
 
 # Create your views here.
@@ -48,7 +48,7 @@ def delete_booking(request, booking_id):
     message = f'Hi {user.username}, your booking has been cancelled.'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [user.email, ]
-    send_mail( subject, message, email_from, recipient_list )
+    send_mail(subject, message, email_from, recipient_list)
     return redirect('my_account')
 
 
