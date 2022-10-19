@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
 from .models import PlaceBooking, Review
 from .forms import BookingForm, ReviewForm, EditBooking
 
@@ -65,6 +66,7 @@ def approve_booking(request, booking_id):
     booking = get_object_or_404(PlaceBooking, id=booking_id)
     booking.approved = not booking.approved
     booking.save()
+    send_mail('Test', 'Din bokning är godkänd', 'bestlasbooking@gmail.com', ['jarker@bestlas.se'])
     return redirect('my_account')
 
 
