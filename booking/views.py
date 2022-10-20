@@ -11,7 +11,11 @@ from .forms import BookingForm, ReviewForm, EditBooking
 
 
 def get_index(request):
-    return render(request, 'booking/index.html')
+    reviews = Review.objects.all()
+    context = {
+        'reviews': reviews,
+    }
+    return render(request, 'booking/index.html', context)
 
 
 def about(request):
