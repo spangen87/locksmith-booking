@@ -11,16 +11,27 @@
   {% endif %}
 </div>
 
-<div class="card-deck text-center">
-  {% for review in reviews %}
-  <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
-    <div class="card-body">
-      <h5 class="card-title">Review from: {{ review.name.first_name }}</h5>
-      <p class="card-text">{{ review.review }}</p>
-      <p class="card-text"><small>{{ review.created_on }}</small></p>
-      <a href="/delete_review/{{ review.id }}" class="btn btn-danger">Cancel</a>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 mx-auto text-center">
+      {% if user.is_staff %}
+      <a href="{% url 'reviews' %}" class="btn btn-primary btn-lg disabled">All Reviews</a>
+      <a href="{% url 'users' %}" class="btn btn-primary btn-lg">All Users</a>
+      <a href="{% url 'my_account' %}" class="btn btn-primary btn-lg">All Bookings</a>
+      <div class="card-deck text-center">
+        {% for review in reviews %}
+        <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
+          <div class="card-body">
+            <h5 class="card-title">Review from: {{ review.name.first_name }}</h5>
+            <p class="card-text">{{ review.review }}</p>
+            <p class="card-text"><small>{{ review.created_on }}</small></p>
+            <a href="/delete_review/{{ review.id }}" class="btn btn-danger">Cancel</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
   </div>
-  {% endfor %}
 </div>
 {% endblock %}

@@ -1,5 +1,40 @@
 {% extends "booking/base.html" %}
 
 {% block content %}
+<div class="col-sm-6 mx-auto">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+        <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 mx-auto text-center">
+            {% if user.is_staff %}
+            <a href="{% url 'reviews' %}" class="btn btn-primary btn-lg">All Reviews</a>
+            <a href="{% url 'users' %}" class="btn btn-primary btn-lg disabled">All Users</a>
+            <a href="{% url 'my_account' %}" class="btn btn-primary btn-lg">All Bookings</a>
+            <div class="card-deck text-center">
+                {% for user in users %}
+                <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">User: {{ user.username }}</h5>
+                        <p class="card-text">{{ user.email }}</p>
+                        {% if user.is_staff %}
+                        <p class="card-text"><strong>Is staff</strong></p>
+                        {% endif %}
+                        <a href="#" class="btn btn-danger">Cancel</a>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}

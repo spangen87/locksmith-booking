@@ -30,4 +30,5 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('reviews', views.view_review, name='reviews'),
     path('delete_review/<review_id>', views.delete_review, name='delete'),
+    path('users', views.view_users, name='users'),
 ]

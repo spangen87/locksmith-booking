@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-6 mx-auto">
+    <div class="col-sm-6 mx-auto text-center">
       {% if messages %}
       {% for message in messages %}
       <div class="alert alert-success">
@@ -14,8 +14,9 @@
       {% endif %}
 
       {% if user.is_staff %}
-      <a href="{% url 'reviews' %}" class="btn btn-primary">All Reviews</a>
-      <a href="{% url 'reviews' %}" class="btn btn-primary disabled">All Users</a>
+      <a href="{% url 'reviews' %}" class="btn btn-primary btn-lg">All Reviews</a>
+      <a href="{% url 'users' %}" class="btn btn-primary btn-lg">All Users</a>
+      <a href="{% url 'my_account' %}" class="btn btn-primary btn-lg disabled">All Bookings</a>
       {% for booking in bookings %}
       <div class="card" style="width: 100%; margin-bottom: 10px;">
         <div class="card-body">

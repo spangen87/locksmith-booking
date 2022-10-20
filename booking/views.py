@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponseRedirect, Http404
 from django.core.mail import send_mail
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import PlaceBooking, Review, User
+from .models import PlaceBooking, Review
 from .forms import BookingForm, ReviewForm, EditBooking
 
 
@@ -151,5 +152,17 @@ def delete_review(request, review_id):
         except Http404 as err:
             messages.error(request, 'Oops, review not found.')
             return redirect('reviews')
+    else:
+        return redirect('home')
+
+
+@login_required
+def view_users(request):
+    if request.user.is_staff:
+        users = User.objects.all()
+        context = {
+            'users': users,
+        }
+        return render(request, 'booking/users.html', context)
     else:
         return redirect('home')
