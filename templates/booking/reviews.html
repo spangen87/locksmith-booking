@@ -1,6 +1,16 @@
 {% extends "booking/base.html" %}
 
 {% block content %}
+<div class="col-sm-6 mx-auto">
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-success">
+    <strong>{{message}}</strong>
+  </div>
+  {% endfor %}
+  {% endif %}
+</div>
+
 <div class="card-deck text-center">
   {% for review in reviews %}
   <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
@@ -8,7 +18,7 @@
       <h5 class="card-title">Review from: {{ review.name.first_name }}</h5>
       <p class="card-text">{{ review.review }}</p>
       <p class="card-text"><small>{{ review.created_on }}</small></p>
-      <a href="/delete/{{ review.id }}" class="btn btn-danger">Cancel</a>
+      <a href="/delete_review/{{ review.id }}" class="btn btn-danger">Cancel</a>
     </div>
   </div>
   {% endfor %}

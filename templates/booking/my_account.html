@@ -14,6 +14,8 @@
       {% endif %}
 
       {% if user.is_staff %}
+      <a href="{% url 'reviews' %}" class="btn btn-primary">All Reviews</a>
+      <a href="{% url 'reviews' %}" class="btn btn-primary disabled">All Users</a>
       {% for booking in bookings %}
       <div class="card" style="width: 100%; margin-bottom: 10px;">
         <div class="card-body">
@@ -109,7 +111,8 @@
           <a href="/edit_booking/{{ booking.id }}" class="btn btn-primary">Update</a>
           <a href="/delete/{{ booking.id }}" class="btn btn-danger">Cancel</a>
           {% else %}
-          <p class="text-muted">Your booking is approved and can't be changed. If there is any issues you need to call us.</p>
+          <p class="text-muted">Your booking is approved and can't be changed. If there is any issues you need to call
+            us.</p>
           {% endif %}
         </div>
       </div>
