@@ -28,4 +28,6 @@ urlpatterns = [
     path('approve/<booking_id>', views.approve_booking, name='approve'),
     path('place_review', views.place_review, name='place_review'),
     path('about', views.about, name='about'),
+    path('reviews', views.view_review, name='reviews'),
+    path('delete_review/<review_id>', views.delete_review, name='delete'),
 ]

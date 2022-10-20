@@ -126,3 +126,30 @@ def place_review(request):
             'posted': True
             }
     return render(request, 'booking/place_review.html', context)
+
+
+@login_required
+def view_review(request):
+    reviews = Review.objects.all()
+    context = {
+        'reviews': reviews,
+    }
+    return render(request, 'booking/reviews.html', context)
+
+
+# @login_required
+# def delete_review(request, review_id):
+#     try:
+#         review = get_object_or_404(PlaceBo, id=booking_id)
+#         email_to = booking.email
+#         subject = 'Your booking'
+#         message = f'Hi {booking.first_name}, your booking has been cancelled.'
+#         email_from = 'bestlasbooking@gmail.com'
+#         recipient_list = [email_to, ]
+#         send_mail(subject, message, email_from, recipient_list)
+#         booking.delete()
+#         messages.success(request, 'Booking deleted successfully.')
+#         return redirect('my_account')
+#     except Http404 as err:
+#         messages.error(request, 'Oops, booking not found.')
+#         return redirect('my_account')

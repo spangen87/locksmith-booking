@@ -1,0 +1,16 @@
+{% extends "booking/base.html" %}
+
+{% block content %}
+<div class="card-deck text-center">
+  {% for review in reviews %}
+  <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
+    <div class="card-body">
+      <h5 class="card-title">Review from: {{ review.name.first_name }}</h5>
+      <p class="card-text">{{ review.review }}</p>
+      <p class="card-text"><small>{{ review.created_on }}</small></p>
+      <a href="/delete/{{ review.id }}" class="btn btn-danger">Cancel</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
