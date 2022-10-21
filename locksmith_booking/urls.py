@@ -32,4 +32,5 @@ urlpatterns = [
     path('delete_review/<review_id>', views.delete_review, name='delete_review'),
     path('users', views.view_users, name='users'),
     path('delete_user/<user_id>', views.delete_user, name='delete_user'),
+    path('staff_status/<user_id>', views.toggle_staff, name='staff_status'),
 ]

@@ -181,3 +181,18 @@ def delete_user(request, user_id):
             return redirect('users')
     else:
         return redirect('home')
+
+
+@login_required
+def toggle_staff(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    user.is_staff = not user.is_staff
+    user.save()
+    email_to = user.email
+    subject = 'Your status has changed'
+    message = f'Hi {user.username}, your authorization has changed. Log in: https://locksmith-booking.herokuapp.com/'
+    email_from = 'bestlasbooking@gmail.com'
+    recipient_list = [email_to, ]
+    send_mail(subject, message, email_from, recipient_list)
+    messages.success(request, 'User Updated successfully!')
+    return redirect('users')

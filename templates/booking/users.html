@@ -22,9 +22,15 @@
                 {% for user in users %}
                 <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
                     <div class="card-body">
-                        <h5 class="card-title">User: {{ user.username }} {% if user.is_staff %}<span class="btn btn-info btn-sm disabled">Is Staff</span>{% endif %}</h5>
+                        <h5 class="card-title">User: {{ user.username }} {% if user.is_staff %}<span
+                                class="btn btn-info btn-sm disabled">Is Staff</span>{% endif %}</h5>
                         <p class="card-text">{{ user.email }}</p>
                         <a href="/delete_user/{{ user.id }}" class="btn btn-danger">Delete User</a>
+                        {% if user.is_staff is False %}
+                        <a href="/staff_status/{{ user.id }}" class="btn btn-success">Make Staff</a>
+                        {% else %}
+                        <a href="/staff_status/{{ user.id }}" class="btn btn-warning">Remove from Staff</a>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}
