@@ -22,7 +22,9 @@
 
 <h3 class="text-center">What does our customer say?</h3>
 <div class="card-deck text-center">
+  
   {% for review in reviews %}
+  {% if review.approved %}
   <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
     <div class="card-body">
       <h5 class="card-title">Review from: {{ review.name.first_name }}</h5>
@@ -30,7 +32,9 @@
       <p class="card-text text-muted"><small>{{ review.created_on }}</small></p>
     </div>
   </div>
+  {% endif %}
   {% endfor %}
+  
 </div>
 {% endblock %}
 

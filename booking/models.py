@@ -32,8 +32,7 @@ class PlaceBooking(models.Model):
 
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
-    name = models.ForeignKey(PlaceBooking, on_delete=models.CASCADE, related_name='reviews')
-    approved = models.BooleanField(default=True)
+    approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     review = models.TextField()
 

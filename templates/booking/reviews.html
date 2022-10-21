@@ -22,11 +22,16 @@
         {% for review in reviews %}
         <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
           <div class="card-body">
-            <h5 class="card-title">Review from: {{ review.name.first_name }}</h5>
+            <h5 class="card-title">Review from: {{ review.user }}</h5>
             <p class="card-text">{{ review.review }}</p>
             <p class="card-text"><small>{{ review.created_on }}</small></p>
             <a href="/delete_review/{{ review.id }}" class="btn btn-danger"
               onclick="return confirm('Are you sure you want to delete? This can not be undone.')">Delete</a>
+            {% if review.approved %}
+            <a href="/review_status/{{ review.id }}" class="btn btn-secondary">Hide From Homepage</a>
+            {% else %}
+            <a href="/review_status/{{ review.id }}" class="btn btn-primary">Show On Homepage</a>
+            {% endif %}
           </div>
         </div>
         {% endfor %}

@@ -200,3 +200,12 @@ def toggle_staff(request, user_id):
     send_mail(subject, message, email_from, recipient_list)
     messages.success(request, 'User Updated successfully!')
     return redirect('users')
+
+
+@login_required
+def approve_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+    review.approved = not review.approved
+    review.save()
+    messages.success(request, 'Review status updated successfully!')
+    return redirect('reviews')

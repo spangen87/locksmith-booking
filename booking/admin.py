@@ -25,7 +25,6 @@ class Review(admin.ModelAdmin):
 
     list_display = (
         'user',
-        'name',
         'approved',
         'created_on',
         'review'
