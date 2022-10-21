@@ -23,6 +23,10 @@ def about(request):
     return render(request, 'booking/about.html')
 
 
+def error_404(request, exception):
+    return render(request, 'booking/404.html')
+
+
 @login_required
 def place_booking(request):
     if request.method == 'POST':
