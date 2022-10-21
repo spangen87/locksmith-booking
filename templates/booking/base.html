@@ -9,11 +9,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Locksmith Booking</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
   </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
@@ -44,9 +46,9 @@
               Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              {% if user.is_authenticated and user.is_staff %}  
+              {% if user.is_authenticated and user.is_staff %}
               <li><a class="dropdown-item" href="{% url 'my_account' %}">Dashboard</a></li>
-              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li> 
+              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
               {% elif user.is_authenticated %}
               <li><a class="dropdown-item" href="{% url 'my_account' %}">My Bookings</a></li>
               <li><a class="dropdown-item" href="{% url 'place_review' %}">Give Review</a></li>
@@ -93,6 +95,22 @@
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
     </ul>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#id_time_for_visit').timepicker({
+        timeFormat: 'HH:mm',
+        interval: 30,
+        minTime: '8',
+        maxTime: '16:00',
+        defaultTime: '13',
+        startTime: '8:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+      });
+    });
+  </script>
 </body>
 
 </html>
