@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Locksmith Booking</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
@@ -35,7 +35,7 @@
             <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'place_booking' %}">Booking</a>
+            <a class="nav-link" href="{% url 'place_booking' %}">Place Booking</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -87,14 +87,13 @@
         height="40">
     </a>
 
-    <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    <ul class="nav flex-column justify-content-end">
+      <li class="nav-item mb-2"><a href="tel:+46855600980" class="nav-link p-0 text-muted">+468-55600980</a></li>
+      <li class="nav-item mb-2"><a href="mailto:info@bestlas.se" class="nav-link p-0 text-muted">info@bestlas.se</a></li>
+      <li class="nav-item mb-2"><span class="nav-link p-0 text-muted">Open everyday: 08.00 - 16.00</span></li>
     </ul>
   </footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
   <script>
     $(document).ready(function () {
