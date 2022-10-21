@@ -27,7 +27,7 @@
   {% if review.approved %}
   <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
     <div class="card-body">
-      <h5 class="card-title">Review from: {{ review.name.first_name }}</h5>
+      <h5 class="card-title">Review from: {{ review.user }}</h5>
       <p class="card-text"><blockquote>"{{ review.review }}"</blockquote></p>
       <p class="card-text text-muted"><small>{{ review.created_on }}</small></p>
     </div>
