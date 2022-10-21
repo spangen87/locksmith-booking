@@ -85,7 +85,8 @@ def edit_booking(request, booking_id):
                 send_mail(subject, message, email_from, recipient_list)
                 messages.success(request, 'Updated successfully!')
                 return redirect('my_account')
-        form = EditBooking(instance=booking)
+        else:
+            form = EditBooking(instance=booking)
         context = {
                 'form': form
             }
@@ -116,7 +117,6 @@ def place_review(request):
         review = Review(user=request.user)
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
-            # form.instance.name = request.name  ????
             form.save()
             messages.success(request, 'Review posted successfully. Waiting for approval.')
             return redirect('place_review')

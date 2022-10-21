@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from phonenumber_field.modelfields import PhoneNumberField
 import datetime
 
 
@@ -10,7 +11,7 @@ class PlaceBooking(models.Model):
     last_name = models.CharField(max_length=30)
     address = models.TextField()
     email = models.EmailField()
-    phone = models.IntegerField()
+    phone = PhoneNumberField()
     created_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     approved = models.BooleanField(default=False)
