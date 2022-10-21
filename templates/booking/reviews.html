@@ -15,9 +15,9 @@
   <div class="row">
     <div class="col-sm-6 mx-auto text-center">
       {% if user.is_staff %}
-      <a href="{% url 'reviews' %}" class="btn btn-primary btn-lg disabled">All Reviews</a>
-      <a href="{% url 'users' %}" class="btn btn-primary btn-lg">All Users</a>
-      <a href="{% url 'my_account' %}" class="btn btn-primary btn-lg">All Bookings</a>
+      <a href="{% url 'reviews' %}" class="btn btn-secondary btn-lg disabled">All Reviews</a>
+      <a href="{% url 'users' %}" class="btn btn-secondary btn-lg">All Users</a>
+      <a href="{% url 'my_account' %}" class="btn btn-secondary btn-lg">All Bookings</a>
       <div class="card-deck text-center">
         {% for review in reviews %}
         <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">

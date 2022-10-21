@@ -166,3 +166,18 @@ def view_users(request):
         return render(request, 'booking/users.html', context)
     else:
         return redirect('home')
+
+
+@login_required
+def delete_user(request, user_id):
+    if request.user.is_staff:
+        try:
+            user = get_object_or_404(User, id=user_id)
+            user.delete()
+            messages.success(request, 'User deleted successfully.')
+            return redirect('users')
+        except Http404 as err:
+            messages.error(request, 'Oops, user not found.')
+            return redirect('users')
+    else:
+        return redirect('home')

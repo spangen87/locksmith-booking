@@ -15,20 +15,16 @@
     <div class="row">
         <div class="col-sm-6 mx-auto text-center">
             {% if user.is_staff %}
-            <a href="{% url 'reviews' %}" class="btn btn-primary btn-lg">All Reviews</a>
-            <a href="{% url 'users' %}" class="btn btn-primary btn-lg disabled">All Users</a>
-            <a href="{% url 'my_account' %}" class="btn btn-primary btn-lg">All Bookings</a>
+            <a href="{% url 'reviews' %}" class="btn btn-secondary btn-lg">All Reviews</a>
+            <a href="{% url 'users' %}" class="btn btn-secondary btn-lg disabled">All Users</a>
+            <a href="{% url 'my_account' %}" class="btn btn-secondary btn-lg">All Bookings</a>
             <div class="card-deck text-center">
                 {% for user in users %}
                 <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
                     <div class="card-body">
-                        <h5 class="card-title">User: {{ user.username }}</h5>
+                        <h5 class="card-title">User: {{ user.username }} {% if user.is_staff %}<span class="btn btn-info btn-sm disabled">Is Staff</span>{% endif %}</h5>
                         <p class="card-text">{{ user.email }}</p>
-                        {% if user.is_staff %}
-                        <p class="card-text"><strong>Is staff</strong></p>
-                        {% endif %}
-                        <a href="#" class="btn btn-danger">Cancel</a>
-
+                        <a href="/delete_user/{{ user.id }}" class="btn btn-danger">Delete User</a>
                     </div>
                 </div>
                 {% endfor %}

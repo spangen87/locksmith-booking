@@ -14,9 +14,9 @@
       {% endif %}
 
       {% if user.is_staff %}
-      <a href="{% url 'reviews' %}" class="btn btn-primary btn-lg">All Reviews</a>
-      <a href="{% url 'users' %}" class="btn btn-primary btn-lg">All Users</a>
-      <a href="{% url 'my_account' %}" class="btn btn-primary btn-lg disabled">All Bookings</a>
+      <a href="{% url 'reviews' %}" class="btn btn-secondary btn-lg">All Reviews</a>
+      <a href="{% url 'users' %}" class="btn btn-secondary btn-lg">All Users</a>
+      <a href="{% url 'my_account' %}" class="btn btn-secondary btn-lg disabled">All Bookings</a>
       {% for booking in bookings %}
       <div class="card" style="width: 100%; margin-bottom: 10px;">
         <div class="card-body">
@@ -55,7 +55,7 @@
                   <th scope="col">Username</th>
                 </tr>
                 <tr>
-                  <td>0{{ booking.phone }} <a href="tel:0046{{ booking.phone }}">Call</a></td>
+                  <td>{{ booking.phone }} <a href="tel:{{ booking.phone }}">Call</a></td>
                   <td>{{ booking.user }}</td>
                 </tr>
               </table>
