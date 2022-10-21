@@ -29,9 +29,9 @@
                             onclick="return confirm('Are you sure you want to delete? This can not be undone.')">Delete
                             User</a>
                         {% if user.is_staff is False %}
-                        <a href="/staff_status/{{ user.id }}" class="btn btn-success">Make Staff</a>
+                        <a href="/staff_status/{{ user.id }}" class="btn btn-success" onclick="return confirm('Are you sure you want this user to be staff?')">Make Staff</a>
                         {% else %}
-                        <a href="/staff_status/{{ user.id }}" class="btn btn-warning">Remove from Staff</a>
+                        <a href="/staff_status/{{ user.id }}" class="btn btn-warning" onclick="return confirm('Are you sure you want to remove this user from staff?')">Remove from Staff</a>
                         {% endif %}
                     </div>
                 </div>
