@@ -13,14 +13,7 @@ Welcome to [Locksmith Booking](https://locksmith-booking.herokuapp.com/)!
     - [Wireframes/Flowchart](#wireframesflowchart)
     - [Design](#design)
 - [Features](#features)
-    - [Existing Features](#existing-features)
-        - [Start](#start)
-        - [Menu](#menu)
-        - [Rules](#rules)
-        - [Choose Level](#choose-level)
-        - [Playing The Game](#playing-the-game)
-        - [Guessing Same Letter](#guessing-same-letter)
-        - [End of Game](#end-of-game)    
+    - [Existing Features](#existing-features) 
     - [Future Features](#future-features)
 - [Tecnologies Used](#technologies-used)
     - [Main Language](#main-language)
@@ -43,7 +36,32 @@ Welcome to [Locksmith Booking](https://locksmith-booking.herokuapp.com/)!
 
 ## User Experience
 ### User Stories
+#### Site User
+- As a user I can want the ability to request a callback before the visit so that I can give more information and receive information.
+- As a user I can have a confirmation so that I know the booking worked.
+- As a user I can cancel my booking if I don't need it anymore.
+- As a user I can edit my booking so that I can change time or give more information.
+- As a user I can create an account so that I can see my bookings.
+- As a user I can describe my problem so that I can get the help needed.
+- As a user I can leave comments so that the locksmith knows how to access the problem.
+- As a user I can see what i typed in so that I can check that I typed everything correctly before it's confirmed.
+- As a user I can see the schedule of available times so that i can choose what fits me.
+#### Staff Memmber
+- As a admin I can see what information is given by the user so that I can prepare the work.
+- As a admin I can see what times have been booked so that I can plan my work.
+- As a admin I can see contact details about the user who bookes so that I can contact the user if needed.
+- As a admin I can see the ID for the booking so that I have have a connection for invoicing.
+- As a admin I can see the address so that I now where to go.
+- As a admin I can move an appointment so that I can keep my schedule.
+- As a admin I can mark a booking as finished so that I know what's left to do.
+
 ### Agile Methodology
+#### GitHub Project Board
+I this project I used GitHubs project board to keep track of my user stories. This was helpful for a bigger project like this so i could break down every user story to smaller pieces,
+and keep track of what is left. It was also helpful for morale. It feels good to move the stories across the board, especially when you feel a little stuck. Using the labels helped to decide where to start each day.
+This project is done by my self alone, but I understand that this tool would be even more important when there is more devolopers working on the same project.
+
+![Screenshot of project board](static/images/readme_images/github_project.jpg)
 
 
 [Back to top](#contents)
