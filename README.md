@@ -66,7 +66,14 @@ This project is done by my self alone, but I understand that this tool would be 
 
 [Back to top](#contents)
 ### Wireframes/Flowchart
-
+Before I started the project I did some wireframes to give me some visuals of what I wanted. This was of big help when I started developing. The wireframes and the live version differs some, and there is some more features
+in the live version that came up along the way. It takes some time to do these. But it will save alot of time in the devloping process if you have a picture of how you want it to look in the end.
+![Index](static/images/readme_images/Index.png)
+![Booking when signed in](static/images/readme_images/Booking%2C%20when%20signed%20in.png)
+![Booking when logged out](static/images/readme_images/Booking%2C%20when%20not%20signed%20in.png)
+![Signup](static/images/readme_images/Signup.png)
+![My account](static/images/readme_images/My%20account.png)
+![Dashboard](static/images/readme_images/Admin%20dashboard.png)
 
 
 ### Design
