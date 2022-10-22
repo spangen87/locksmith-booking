@@ -4,7 +4,7 @@ The locksmith will then confirm your booking or call to get additional details.
 
 Welcome to [Locksmith Booking](https://locksmith-booking.herokuapp.com/)!
 
-![Application on different screens](#)
+![Application on different screens](static/images/readme_images/responsive.jpg)
 
 ## Contents
 - [User Experience](#user-experience)
@@ -77,11 +77,43 @@ in the live version that came up along the way. It takes some time to do these. 
 
 
 ### Design
+#### Typography
+For this project I decided to go with the standard bootstrap fonts. As Best Lås is a security company I wanted a clean and serious look. I thought the fonts provided by bootsrap were a good fit.
 
+![Fonts](static/images/readme_images/bootstrap_fonts.jpg)
+
+#### Colors
+Here I also wanted a clean look. The logo for Best Lås have a lighter blue and black. I changed the bootstrap primary color to the same blue used in the logo. White is the background on all pages.
+
+![Colors](static/images/readme_images/colors.jpg)
 
 [Back to top](#contents)
 ## Features
-### Existing Features
+### Existing Features For All Users
+#### Navigation Bar
+The navigation bar is important for the user when visting the website. I wanted it to be clean, simple and easy to navigate.
+I choosed to have all account related links in i dropdown, which will change depending if you are logged in as a staff member or a regular user. Or not logged in at all.
+In the top right corner it will show if you are logged in and what username you have. When visiting the site on smaller screen sizes (below 992px) the navbar will be collapsable instead so it won't take up to much space on the screen.
+Bootstrap was of big help when building the navbar.
+
+![Navbar computer](static/images/readme_images/navbar_computer.jpg)
+
+The navbar when viewed on screens over 992px.
+
+![Navbar mobile expanded](static/images/readme_images/navbar_phone.jpg)  ![Navbar mobile collapsed](static/images/readme_images/navbar_phone_collaspsed.jpg)
+
+The navbar on a phone with menu expanded. To the right: The navbar on a phone with meny collapsed.
+
+#### Home
+The first page you see when visiting the site is important for a good first impression. Here I choosed to have a heading with the company name, and a shorter text below. Followed by two call to action buttons.
+Either to place a booking or to visit the About page to read more about the company. Below there is a dicrete image of a key in a marking machine.
+
+I also decided to have reviews from previous customers showing on the start page. The staff members can choose which reviews to show and which ones to hide.
+It is important to show some reviews to build trust towards new customers.
+
+![Home](static/images/readme_images/home.jpg)  ![Home on phone](static/images/readme_images/home_phone.jpg)
+
+### Existing Features For Staff Memebers
 
 [Back to top](#contents)
 ### Future Features
