@@ -60,7 +60,7 @@ def delete_booking(request, booking_id):
         booking = get_object_or_404(PlaceBooking, id=booking_id)
         email_to = booking.email
         subject = 'Your booking'
-        message = f'Hi {booking.first_name}, your booking has been cancelled.'
+        message = f'Hi {booking.first_name}, your booking on {booking.date_for_visit} has been cancelled.'
         email_from = 'bestlasbooking@gmail.com'
         recipient_list = [email_to, ]
         send_mail(subject, message, email_from, recipient_list)
@@ -83,7 +83,7 @@ def edit_booking(request, booking_id):
                 form.save()
                 email_to = booking.email
                 subject = 'Your booking'
-                message = f'Hi {booking.first_name}, your booking has been updated. Log in to see details.'
+                message = f'Hi {booking.first_name}, your booking on {booking.date_for_visit} has been updated. Log in to see details. Log in: https://locksmith-booking.herokuapp.com/'
                 email_from = 'bestlasbooking@gmail.com'
                 recipient_list = [email_to, ]
                 send_mail(subject, message, email_from, recipient_list)
@@ -107,7 +107,7 @@ def approve_booking(request, booking_id):
     booking.save()
     email_to = booking.email
     subject = 'Your booking'
-    message = f'Hi {booking.first_name}, your booking has been updated. Log in to see details.'
+    message = f'Hi {booking.first_name}, your booking on {booking.date_for_visit} has been updated. Log in to see details. Log in: https://locksmith-booking.herokuapp.com/'
     email_from = 'bestlasbooking@gmail.com'
     recipient_list = [email_to, ]
     send_mail(subject, message, email_from, recipient_list)
