@@ -124,6 +124,9 @@ def place_review(request):
             form.save()
             messages.success(request, 'Review posted successfully. Waiting for approval.')
             return redirect('place_review')
+        else:
+            messages.error(request, 'Review must contain valid text. Try again.')
+            return redirect('place_review')
     else:
         form = ReviewForm()
         context = {

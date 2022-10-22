@@ -18,6 +18,7 @@
             <a href="{% url 'reviews' %}" class="btn btn-secondary btn-lg">All Reviews</a>
             <a href="{% url 'users' %}" class="btn btn-secondary btn-lg disabled">All Users</a>
             <a href="{% url 'my_account' %}" class="btn btn-secondary btn-lg">All Bookings</a>
+            <h1 class="text-center" style="margin-top: 10px;">All Users</h1>
             <div class="card-deck text-center">
                 {% for user in users %}
                 <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
