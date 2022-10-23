@@ -104,6 +104,7 @@ The navbar when viewed on screens over 992px.
 
 The navbar on a phone with menu expanded. To the right: The navbar on a phone with meny collapsed.
 
+[Back to top](#contents)
 #### Home
 The first page you see when visiting the site is important for a good first impression. Here I choosed to have a heading with the company name, and a shorter text below. Followed by two call to action buttons.
 Either to place a booking or to visit the About page to read more about the company. Below there is a dicrete image of a key in a marking machine.
@@ -113,7 +114,85 @@ It is important to show some reviews to build trust towards new customers.
 
 ![Home](static/images/readme_images/home.jpg)  ![Home on phone](static/images/readme_images/home_phone.jpg)
 
+[Back to top](#contents)
+#### About
+I decied to create an about page so the users can read more about the company. This is important for building trust. As a user I want to know the company I am buying products/services from.
+There is also photos of all the locksmiths that works at Best Lås so the user will get a face of the people that will visit them.
+
+![About](static/images/readme_images/about.jpg)
+
+[Back to top](#contents)
+#### Footer
+As of the rest of the site, I wanted a clean and simple look here. Showing to the left is the company name and copyright information.
+In the middle there is a small logo, and to the right there is some contact information and open hours. The footer is from bootstrap with some small adjustments to it.
+
+![Footer](static/images/readme_images/footer.jpg)
+
+[Back to top](#contents)
+#### Login Page
+The login page is from the authentication module allauth. I imported the template and gave it some basic styling using bootstrap. I also extended my base template so the user stays on the page when logging in and changed the text.
+
+![Login](static/images/readme_images/login.jpg)
+
+[Back to top](#contents)
+#### Sign Up Page
+The login page is also from the authentication module allauth. I imported the template and gave it some basic styling using bootstrap. I also extended my base template so the user stays on the page when logging in.
+
+![Sign up](static/images/readme_images/sign_up.jpg)
+
+[Back to top](#contents)
+#### Place Booking
+- The place booking page is only accessible when logged in. If you are not logged in you will get redirected to the login page instead.
+- The form contains all the necessary fields. Contact information, address and a description of the problem. The user can also choose a preffered time and date.
+- The datepicker is the standard HTML element for picking dates. In the model I have used a function to validate that the booking can't be done on date in the past. In the form itself there is also a validation that disables dates that are closer than two days in the future. There is also a limit that you can't book more than 30 days in advance.
+- For the phonenumber field i used [Django Phonenumber Field](https://pypi.org/project/django-phonenumber-field/) to validate the phonenumber.
+
+![Place booking](static/images/readme_images/place_booking.jpg)
+
+- For the timepicker I used a plugin called [jQuery Timepicker](https://timepicker.co/). I used that plugin because i wanted times with 30 minutes interval, and I only wanted times in open hours to show. I didn't manage to get that to work with the standard HTML timepicker. After some research it seems that the support for that in the browsers are poor. So then the [jQuery Timepicker](https://timepicker.co/) was a better choice.
+
+![Timepicker](static/images/readme_images/booking_timepicker.jpg)
+
+[Back to top](#contents)
+#### Give Review
+- The form for giving a review is only accessible when logged in as a regular user.
+- It conatins only one textfield where the user can write his review.
+- The user gets notified when submitting that the review is sent successfully and is waiting for approval. The reviews are showing on the index page, so I wanted it to be checked by a staff member before it's viewed there.
+
+![Review form](static/images/readme_images/review_form.jpg)
+
+- I had problem with this form, and i gave a error 500 if you tried to submit only spaces. So I validated it by throwing a message if the input was invalid, and redirected back to the form again.
+
+![Review form](static/images/readme_images/review_validation.jpg)
+
+[Back to top](#contents)
+#### My Bookings
+- A page where the user can view his booking, edit it or cancel it. 
+- When the booking is approved by a staff member the user can no longer edit or cancel it by themselves, and you have to call to make changes. The reason for this is to avoid last minute cancellations. The lockstmith maybe alredy planned the day and be on their way for the visit. 
+- There is a label besides the booking number that shows if the booking is approved by a staff member or is pending.
+
+![My Bookings](static/images/readme_images/my_bookings.jpg)
+
+- When user press update the form is showed again with the current inforamtion in it.
+![Edit Bookings](static/images/readme_images/edit_booking.jpg)
+
+- When a user tries to cancel/delete a booking, an alert is shown and the user needs to confirm the cancellation.
+
+![Cancel Bookings](static/images/readme_images/cancel_booking.jpg)
+
+[Back to top](#contents)
 ### Existing Features For Staff Memebers
+#### All Bookings
+- As a staff member you can view, edit and delete all bookings. The staff member also have the option to confirm a booking, or withdraw the confiramtion. If a change is made, or if it is deleted, the user who placed the booking will get an email notification about this.
+- Staff members can do this because if they after talking to the customer got more information that is needed, or if they agreed on a different time, the customer himself don't need to update the booking.
+
+![All bookings](static/images/readme_images/dashboard.jpg)
+
+- When a change is successful, a message will show. And an email will be sent to the customer.
+
+![Updated booking](static/images/readme_images/updated_booking_message.jpg)
+
+- The same alert will show for the staff members as for the users when try to delete a booking.
 
 [Back to top](#contents)
 ### Future Features

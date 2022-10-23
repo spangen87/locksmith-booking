@@ -17,10 +17,12 @@
     <form method="post" style="margin-top: 1.3em;">
       {{ form | crispy }}
       {% csrf_token %}
-      <p class="text-muted">The booking is only temporary until we have approved it. We will call you within 24 hours
-        (monday - friday) and confirm the booking and get more details if necessary. <br>
-        If it is a urgent matter, please call our emergeny number at <a href="tel:00468000000">+468-000-000</a> instead.
-      </p>
+      <p class="text-muted">The booking is only temporary until we have approved it. The time choosen can't be
+        guaranteed until we have approved the booking. <br> We will call you within 24 hours if we have some questions
+        or if we have to change something.<br>
+        If everything is fine you will get an email when we have confirmed the booking.</p>
+      <p class="text-muted">If it is a urgent matter, please call our emergeny number at <a
+          href="tel:00468000000">+468-000-000</a> instead.</p>
       <button type="submit" class="btn btn-primary btn-signup btn-lg">Submit</button>
     </form>
     {% else %}
