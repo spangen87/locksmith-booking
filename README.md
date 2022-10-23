@@ -16,13 +16,9 @@ Welcome to [Locksmith Booking](https://locksmith-booking.herokuapp.com/)!
     - [Existing Features](#existing-features) 
     - [Future Features](#future-features)
 - [Tecnologies Used](#technologies-used)
-    - [Main Language](#main-language)
-    - [Other Frameworks, Libraries and Software Used](#other-frameworks-libraries-and-software-used)
+    - [Technologies Used](#technologies-used)
+    - [Libraries](#libraries)
 - [Testing](#testing)
-    - [Manual Testing](#manual-testing)
-    - [Input Validation](#input-validation)
-    - [Validator Testing](#validator-testing)
-    - [Lighthouse](#lighthouse)
 - [Bugs](#bugs)
     - [Solved](#solved)
     - [Left to Solve](#left-to-solve)
@@ -85,7 +81,7 @@ For this project I decided to go with the standard bootstrap fonts. As Best Lås
 #### Colors
 Here I also wanted a clean look. The logo for Best Lås have a lighter blue and black. I changed the bootstrap primary color to the same blue used in the logo. White is the background on all pages.
 
-Edit: When testing the contrast it showed that the blue i had choosen was to light and was not enough contrast to the text. So I decided to go back to bootstraps original primary color to pass the tests.
+Edit: When testing the contrast it showed that the blue i had choosen was to light and was not enough contrast to the text. So I decided to go back to bootstraps original primary color as a last minute change to pass the tests.
 
 ![Colors](static/images/readme_images/colors.jpg)
 
@@ -330,60 +326,94 @@ The application has been tested with Chrome Dev Tools Lighthouse Testing which t
 #### All Reviews (staff user)
 ![All Reviews](static/images/readme_images/all_reviews_light.jpg)
 
-### Manual testing
+[Back to top](#contents)
+### Accessibility Testing
+I checked so the contrast was enough on the site using [a11y](https://color.a11y.com/Contrast/).
 
+![Contrast](static/images/readme_images/contrast_validation.jpg)
+
+[Back to top](#contents)
+### Responsiveness Testing
+Test for responsiveness was made with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/).
+I tested for different devices and there is no known issues with the most common devices. I also tested with a iPhone 12 to see that it looked good on a real mobile device.
+
+Below is an example of test and how you can change device, in this case an Ipad Mini.
+
+![Responsiveness](static/images/readme_images/responsive_dev_tools.jpg)
+
+### Manual testing
+Alot of testing has been done of the website. The testing has been done by myself, my mentor and some friends and colleagues.
+Trying different inputs to forms, clicking links, entering URLs manually, making inputs, edit and deleting them.
+
+- All links are working.
+- Clicking on the logo gets you back to the home page.
+- If you try to access a page which requires the user to be logged in, you are redirected to the login page.
+- If you manually try to access a page you don't have permission to view you will get redirected to home.
+- User can only see his bookings if user is not a staff member.
+- An alert is showing everytime a user tries to delete something.
+- A confirmation message is shown when something is performed.
+- All CRUD (Create, Read, Update, Delete) functionality is working as it should.
+- Emails are sent to affected user when an update of booking is made.
+- Email are sent to user when access rights are changed (gets Staff status, or if it is removed).
+- All forms have validation for the required fields.
 
 [Back to top](#contents)
 ## Bugs
 ### Solved
-
+- There was an issue with the review form. If you entered only spaces and pressed submit, it threw an 500 error. The issue was solved by adding an if/else statement that showed a message that the input is incorrect and redirected the user back to the form instead.
+- The HTML timepicker was not showing available times correctly. You could choose every minute of the day even though the form only accepted 8AM-4PM in 30 minutes intervals as it should. After some research it seemed it was because the browsers support for the function was poor. My solution was to implement jQuery Timepicker instead.
+- John at Tutor Support found a bug, it was that if you entered an URL for deleting an booking manually it was possible even when not logged in. The solution was to add the decorator @login_required to all views that needed the user to be logged in. And also to check if the user is staff when needed.
 
 [Back to top](#contents)
 ### Left to Solve
-
+At the moment there are no known bugs left to solve.
 
 [Back to top](#contents)
 ## Deployment
 ### To deploy the project
 This application is deployed using [Heroku](https://heroku.com/).
 
+- Before doing the following steps I created a env.py file in gitpod that contains the sensitive information that should not be pushed to github/heroku. And added that file to the .gitignore file.
+- Created a Procfile so Heroku knows what kind of application it is.
+- Created a requirements.txt file with all the necessary requirements for the app to run.
+
 The steps for deploying through [Heroku](https://heroku.com/) is as follows:
 
 1. Visit [Heroku](https://heroku.com/) and make sure you are logged in.
 2. Click on New and then choose New App.
 
-![First step](assets/readme-images/heroku-create-new.jpg)
+![First step](static/images/readme_images/heroku-create-new.jpg)
 
 3. Choose a name for your app and then choose your region.
 4. Then press 'Create app'.
 
-![Second step](assets/readme-images/heroku-2nd.jpg)
+![Second step](static/images/readme_images/heroku-2nd.jpg)
 
 5. Make sure you are on the 'Deploy' tab.
 6. Choose connect to GitHub account.
 7. Search for your repository that you want to deploy.
 8. Press 'Connect'
 
-![Third step](assets/readme-images/heroku-3rd.jpg)
+![Third step](static/images/readme_images/heroku-3rd.jpg)
 
 9. Choose if you want automatic deploys from your repository on GitHub.
 10. Choose which branch you want to deploy.
 11. Press 'Deploy Branch'.
 
-![Fouth step](assets/readme-images/heroku-4th.jpg)
+![Fouth step](static/images/readme_images/heroku-4th.jpg)
 
 12. When the installation is done. Go to the settings tab.
 13. Press on 'Reveal Config Vars'.
 
-![Fifth step](assets/readme-images/heroku-5th.jpg)
+![Fifth step](static/images/readme_images/heroku-5th.jpg)
 
-14. Add config vars that are necessary. In this project it was the one showed below.
+14. Add config vars that are necessary. In this project it was a couple more, but they contain sensitive information.
 
-![Sixth step](#)
+![Sixth step](static/images/readme_images/heroku-6th.jpg)
 
 15. Add the buildpacks needed.
 
-![Seventh step](#)
+![Seventh step](static/images/readme_images/heroku-7th.jpg)
 
 16. Now you are done and can open the app!
 
@@ -397,7 +427,7 @@ The steps for doing this:
 2. On the top right there is a button called Fork.
 3. Press the Fork button to make a copy to your account.
 
-![Image showing how to fork](assets/readme-images/github-fork.jpg)
+![Image showing how to fork](static/images/readme_images/github-fork.jpg)
 
 [Back to top](#contents)
 ### How to clone the project
@@ -407,7 +437,7 @@ This is how you make a clone of the repository:
 2. Then click on "Code" button to the right above the files listed.
 3. Click on the clipboard icon to copy the URL.
 
-![Imge that shows where to find the URL for cloning](assets/readme-images/github-clone.jpg)
+![Imge that shows where to find the URL for cloning](static/images/readme_images/github-clone.jpg)
 
 4. Open Git Bash in the IDE of your choice.
 5. Change the working directory to where you want your cloned directory.
@@ -416,10 +446,19 @@ This is how you make a clone of the repository:
 
 [Back to top](#contents)
 ## Credits
+### Content
+- I followed [this](https://dev.to/abderrahmanemustapha/how-to-send-email-with-django-and-gmail-in-production-the-right-way-24ab) tutorial for setting up email with Django using Gmail.
+- [Bootstrap](https://getbootstrap.com/) is used alot in this project when adding the design to the front end.
 
+[Back to top](#contents)
+### Media
+- All photos used are taken by myself.
 
 [Back to top](#contents)
 ## Acknowledgements
+This site was build as a part of the Full Stack Sofware Development education at [Code Institute](https://codeinstitute.net/). This is my Portfolio Project 4.
+I want to thank my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) for the help and support through this project. And i want to thank Ludde Hedlund for being like a second mentor to me helping me figure out some issues along the way.
 
+Rikard Spångmyr, 2022.
 
 [Back to top](#contents)
