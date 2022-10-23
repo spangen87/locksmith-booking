@@ -8,8 +8,8 @@
       will get in touch with you. We have been in the business for over 45 years. So we know how to handle doors and
       locks.</p>
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-      <a type="button" class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'place_booking' %}">Book now</a>
-      <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="{% url 'about' %}">About Us</a>
+      <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'place_booking' %}">Book now</a>
+      <a class="btn btn-outline-secondary btn-lg px-4" href="{% url 'about' %}">About Us</a>
     </div>
   </div>
   <div class="overflow-hidden" style="max-height: 30vh;">
@@ -28,7 +28,7 @@
   <div class="card bg-light mb-3 mx-auto" style="max-width: 36rem;">
     <div class="card-body">
       <h5 class="card-title">Review from: {{ review.user }}</h5>
-      <p class="card-text"><blockquote>"{{ review.review }}"</blockquote></p>
+      <p class="card-text">"{{ review.review }}"</p>
       <p class="card-text text-muted"><small>{{ review.created_on }}</small></p>
     </div>
   </div>

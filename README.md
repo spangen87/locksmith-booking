@@ -274,6 +274,29 @@ The following libraries are used in the project and are located in the requireme
 
 [Back to top](#contents)
 ## Testing
+### Validator Testing
+Locksmith Booking have been tested by using validation tools for HTML, CSS, JavaScript and Python.
+- [W3C HTML Validator](https://validator.w3.org/)
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+- [JSHint JavaScript Validator](https://jshint.com/)
+- [PEP8 Online Validator](http://pep8online.com/)
+
+#### HTML Validation
+![HTML](static/images/readme_images/html_validation.jpg)
+
+#### CSS Validation
+![CSS](static/images/readme_images/css_validation.jpg)
+
+#### JavaScript Validation
+![JS](static/images/readme_images/jshint.jpg)
+
+#### Python Validation
+The recommended tool for this is [PEP8 Online Validator](http://pep8online.com/) but when this was created the site was not available.
+Workaround is to use pycodestyle directly in Gitpod instead.
+
+
+
+
 ### Manual testing
 
 
