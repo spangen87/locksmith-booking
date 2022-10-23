@@ -242,8 +242,6 @@ The login page is also from the authentication module allauth. I imported the te
 - [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
 - [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
 - [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
-- [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) - Used to generate a .dot file for all apps and models
-- [dreampuf](https://dreampuf.github.io/GraphvizOnline/) - Used to present the .dot file in the form of a database diagram
 
 [Back to top](#contents)
 ### Libraries
