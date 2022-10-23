@@ -19,17 +19,34 @@ class TimeInput(forms.TimeInput):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = PlaceBooking
-        fields = ('first_name', 'last_name', 'address', 'email', 'phone', 'description', 'date_for_visit', 'time_for_visit',)
+        fields = ('first_name',
+                  'last_name',
+                  'address',
+                  'email',
+                  'phone',
+                  'description',
+                  'date_for_visit',
+                  'time_for_visit',)
         widgets = {
-            'date_for_visit': DateInput(attrs={'min': datetime.date.today()+datetime.timedelta(days=2), 'max': datetime.date.today()+datetime.timedelta(days=30)}),
-            'time_for_visit': TimeInput(attrs={'class': 'timepicker'}),
+            'date_for_visit': DateInput(attrs={
+                'min': datetime.date.today()+datetime.timedelta(days=2),
+                'max': datetime.date.today()+datetime.timedelta(days=30)}),
+            'time_for_visit': TimeInput(attrs={
+                'class': 'timepicker'}),
         }
 
 
 class EditBooking(forms.ModelForm):
     class Meta:
         model = PlaceBooking
-        fields = ('first_name', 'last_name', 'address', 'email', 'phone', 'description', 'date_for_visit', 'time_for_visit',)
+        fields = ('first_name',
+                  'last_name',
+                  'address',
+                  'email',
+                  'phone',
+                  'description',
+                  'date_for_visit',
+                  'time_for_visit',)
         widgets = {
             'date_for_visit': DateInput(attrs={'min': datetime.date.today()}),
             'time_for_visit': TimeInput()

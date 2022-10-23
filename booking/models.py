@@ -6,7 +6,9 @@ import datetime
 
 
 class PlaceBooking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='bookings'
+        )
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     address = models.TextField()
@@ -31,7 +33,9 @@ class PlaceBooking(models.Model):
 
 
 class Review(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='reviews'
+        )
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     review = models.TextField()
@@ -40,4 +44,4 @@ class Review(models.Model):
         ordering: ['created_on']
 
     def __str__(self):
-        return f"Review {self.review} by {self.name.first_name} {self.name.last_name}"
+        return f"Review {self.review} by {self.username}."

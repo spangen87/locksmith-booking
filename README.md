@@ -294,8 +294,41 @@ Locksmith Booking have been tested by using validation tools for HTML, CSS, Java
 The recommended tool for this is [PEP8 Online Validator](http://pep8online.com/) but when this was created the site was not available.
 Workaround is to use pycodestyle directly in Gitpod instead.
 
+The following picture is the result. At the bottom you can see there is no problems in the workspace. And at the top you can see that are filenames are yellow. Before some issues were fixed they were red.
 
+![Python](static/images/readme_images/python_validation.jpg)
 
+[Back to top](#contents)
+### Lighthouse Testing
+The application has been tested with Chrome Dev Tools Lighthouse Testing which tests the application for:
+- Performance
+- Accessibility
+- Best Practices
+- SEO 
+
+#### Home page
+![Home](static/images/readme_images/home_light.jpg)
+
+#### About Page
+![About](static/images/readme_images/about_light.jpg)
+
+#### Place Booking
+![Place Booking](static/images/readme_images/place_booking_light.jpg)
+
+#### Place Review
+![Place Review](static/images/readme_images/place_review_light.jpg)
+
+#### My Bookings (regular user)
+![My Bookings](static/images/readme_images/my_bookings_light.jpg)
+
+#### All Bookings (staff user)
+![All Bookings](static/images/readme_images/all_bookings_light.jpg)
+
+#### All Users (staff user)
+![All Users](static/images/readme_images/all_users_light.jpg)
+
+#### All Reviews (staff user)
+![All Reviews](static/images/readme_images/all_reviews_light.jpg)
 
 ### Manual testing
 

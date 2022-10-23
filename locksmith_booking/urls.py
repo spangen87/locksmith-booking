@@ -30,11 +30,15 @@ urlpatterns = [
     path('place_review', views.place_review, name='place_review'),
     path('about', views.about, name='about'),
     path('reviews', views.view_review, name='reviews'),
-    path('delete_review/<review_id>', views.delete_review, name='delete_review'),
+    path('delete_review/<review_id>',
+         views.delete_review,
+         name='delete_review'),
     path('users', views.view_users, name='users'),
     path('delete_user/<user_id>', views.delete_user, name='delete_user'),
     path('staff_status/<user_id>', views.toggle_staff, name='staff_status'),
-    path('review_status/<review_id>', views.approve_review, name='review_status'),
+    path('review_status/<review_id>',
+         views.approve_review,
+         name='review_status'),
 ]
 
 handler404 = 'booking.views.error_404'

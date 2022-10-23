@@ -4,9 +4,12 @@ from .models import PlaceBooking, Review
 # Register your models here.
 # admin.site.register(PlaceBooking)
 
+
 @admin.register(PlaceBooking)
 class PlaceBookingAdmin(admin.ModelAdmin):
-
+    """
+    Displays the fields needed in admin page from PlaceBooking model
+    """
     list_display = (
         'first_name',
         'last_name',
@@ -22,7 +25,9 @@ class PlaceBookingAdmin(admin.ModelAdmin):
 
 @admin.register(Review)
 class Review(admin.ModelAdmin):
-
+    """
+    Displays the fields needed in admin page from Review model
+    """
     list_display = (
         'user',
         'approved',

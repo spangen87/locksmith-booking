@@ -34,7 +34,8 @@ def place_booking(request):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Booking placed successfully. Please allow up to 24 hours for callback.')
+            messages.success(request, 'Booking placed successfully.\
+                 Please allow up to 24 hours for callback.')
             return redirect('place_booking')
     else:
         form = BookingForm()
@@ -60,7 +61,8 @@ def delete_booking(request, booking_id):
         booking = get_object_or_404(PlaceBooking, id=booking_id)
         email_to = booking.email
         subject = 'Your booking'
-        message = f'Hi {booking.first_name}, your booking on {booking.date_for_visit} has been cancelled.'
+        message = f'Hi {booking.first_name}, your booking on\
+             {booking.date_for_visit} has been cancelled.'
         email_from = 'bestlasbooking@gmail.com'
         recipient_list = [email_to, ]
         send_mail(subject, message, email_from, recipient_list)
@@ -83,7 +85,10 @@ def edit_booking(request, booking_id):
                 form.save()
                 email_to = booking.email
                 subject = 'Your booking'
-                message = f'Hi {booking.first_name}, your booking on {booking.date_for_visit} has been updated. Log in to see details. Log in: https://locksmith-booking.herokuapp.com/'
+                message = f'Hi {booking.first_name}, your booking on\
+                        {booking.date_for_visit} has been updated.\
+                        Log in to see details.\
+                        Log in: https://locksmith-booking.herokuapp.com/'
                 email_from = 'bestlasbooking@gmail.com'
                 recipient_list = [email_to, ]
                 send_mail(subject, message, email_from, recipient_list)
@@ -107,7 +112,10 @@ def approve_booking(request, booking_id):
     booking.save()
     email_to = booking.email
     subject = 'Your booking'
-    message = f'Hi {booking.first_name}, your booking on {booking.date_for_visit} has been updated. Log in to see details. Log in: https://locksmith-booking.herokuapp.com/'
+    message = f'Hi {booking.first_name}, your booking on\
+        {booking.date_for_visit} has been updated.\
+        Log in to see details.\
+        Log in: https://locksmith-booking.herokuapp.com/'
     email_from = 'bestlasbooking@gmail.com'
     recipient_list = [email_to, ]
     send_mail(subject, message, email_from, recipient_list)
@@ -122,10 +130,14 @@ def place_review(request):
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Review posted successfully. Waiting for approval.')
+            messages.success(
+                request, 'Review posted successfully. Waiting for approval.'
+                )
             return redirect('place_review')
         else:
-            messages.error(request, 'Review must contain valid text. Try again.')
+            messages.error(
+                request, 'Review must contain valid text. Try again.'
+                )
             return redirect('place_review')
     else:
         form = ReviewForm()
@@ -197,7 +209,8 @@ def toggle_staff(request, user_id):
     user.save()
     email_to = user.email
     subject = 'Your status has changed'
-    message = f'Hi {user.username}, your authorization has changed. Log in: https://locksmith-booking.herokuapp.com/'
+    message = f'Hi {user.username}, your authorization has changed.\
+        Log in: https://locksmith-booking.herokuapp.com/'
     email_from = 'bestlasbooking@gmail.com'
     recipient_list = [email_to, ]
     send_mail(subject, message, email_from, recipient_list)
