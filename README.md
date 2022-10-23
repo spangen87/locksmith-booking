@@ -85,6 +85,8 @@ For this project I decided to go with the standard bootstrap fonts. As Best Lås
 #### Colors
 Here I also wanted a clean look. The logo for Best Lås have a lighter blue and black. I changed the bootstrap primary color to the same blue used in the logo. White is the background on all pages.
 
+Edit: When testing the contrast it showed that the blue i had choosen was to light and was not enough contrast to the text. So I decided to go back to bootstraps original primary color to pass the tests.
+
 ![Colors](static/images/readme_images/colors.jpg)
 
 [Back to top](#contents)
@@ -174,11 +176,19 @@ The login page is also from the authentication module allauth. I imported the te
 ![My Bookings](static/images/readme_images/my_bookings.jpg)
 
 - When user press update the form is showed again with the current inforamtion in it.
+
 ![Edit Bookings](static/images/readme_images/edit_booking.jpg)
 
 - When a user tries to cancel/delete a booking, an alert is shown and the user needs to confirm the cancellation.
 
 ![Cancel Bookings](static/images/readme_images/cancel_booking.jpg)
+
+[Back to top](#contents)
+#### Custom 404 Page
+- A custom 404 page that appears when trying to access a page that does not exist.
+- Has the navbar present so you can easily return to an existing page.
+
+![404](static/images/readme_images/404.jpg)
 
 [Back to top](#contents)
 ### Existing Features For Staff Memebers
@@ -195,22 +205,72 @@ The login page is also from the authentication module allauth. I imported the te
 - The same alert will show for the staff members as for the users when try to delete a booking.
 
 [Back to top](#contents)
-### Future Features
+#### All Users
+- Staff members can view, delete and assign/remove staff status from users.
+- A label is showing to the right of the username if the the user has staff status.
 
+![All users](static/images/readme_images/all_users.jpg)
+
+[Back to top](#contents)
+#### All Reviews
+- As a staff member you can see all reviews.
+- You can delete a review, but not edit it. The review should be a quotation of the customers own word and should not be altered.
+- Staff member can choose if a review should be visible on the index page or not.
+- When trying to delete a review an alert is showing and you need to confirm that you want to delete it permanently.
+
+![All Reviews](static/images/readme_images/all_reviews.jpg)
+
+[Back to top](#contents)
+### Future Features
+- A connection to all the locksmiths schedules would be nice to have. So you can see immediately what times and which lockstmiths that are available. They could be booked on bigger projects and through other channels, so at the moment it was too big of a task to achieve.
+- Archive bookings that finished is a feature i would like to add in the future. 
+- Search fields in dashboard for staff members. So it will be easier to find the booking, user or review you are looking for.
 
 [Back to top](#contents)
 ## Technologies Used
-### Main Language
-- [Python](https://www.python.org/)
+- [Django](https://www.djangoproject.com/) - A model-view-template framework used to create Locksmith Booking
+- [Bootstrap](https://getbootstrap.com/) - A CSS framework used for the front end development.
+- [HTML5](https://en.wikipedia.org/wiki/HTML) - Provides the content and structure for the website.
+- [CSS3](https://en.wikipedia.org/wiki/CSS) - Provides the styling for the website.
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - Provides interactive elements of the website
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality of the website.
+- [a11y](https://color.a11y.com/Contrast/) - Used to test the contrast and accessibility.
+- [Gitpod](https://gitpod.io/) - Used to create and edit the website.
+- [GitHub](https://github.com/) - Used to host the repository.
+- [GitBash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) - Terminal used to push changes to the GitHub repository.
+- [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to test responsiveness and debug.
+- [Balsamiq](https://balsamiq.com/) - Used to create the wireframes for the project.
+- [Cloudinary](https://cloudinary.com/) - Used to host all static files and images.
+- [Heroku](https://dashboard.heroku.com) - Used to deploy the website
+- [PEP8 Validation](http://pep8online.com/) - Used to validate Python code
+- [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
+- [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
+- [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
+- [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) - Used to generate a .dot file for all apps and models
+- [dreampuf](https://dreampuf.github.io/GraphvizOnline/) - Used to present the .dot file in the form of a database diagram
 
 [Back to top](#contents)
-### Other Frameworks, Libraries and Software Used
-- Django
+### Libraries
+The following libraries are used in the project and are located in the requirements.txt file.
 
-- [Heroku](https://heroku.com/) was used to deploy the live version.
-- [GitHub](https://github.com/) was used for storing my repository.
-- [Gitpod](https://www.gitpod.io/) was used to create all files with code.
-
+- asgiref==3.5.2
+- cloudinary==1.30.0
+- dj-database-url==0.5.0
+- dj3-cloudinary-storage==0.0.6
+- Django==3.2.15
+- django-allauth==0.51.0
+- django-crispy-forms==1.14.0
+- django-phonenumber-field==7.0.0
+- gunicorn==20.1.0
+- oauthlib==3.2.1
+- phonenumberslite==8.12.57
+- psycopg2==2.9.3
+- PyJWT==2.5.0
+- python3-openid==3.2.0
+- pytz==2022.4
+- requests-oauthlib==1.3.1
+- sqlparse==0.4.3
+- types-cryptography==3.3.23
 
 [Back to top](#contents)
 ## Testing

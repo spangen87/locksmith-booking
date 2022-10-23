@@ -1,9 +1,9 @@
-.btn-primary {
-    background-color: #00AEEF;
-}
-
 .btn {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-right: 5px;
+}
+
+.nav {
+    margin-right: 10px;
 }
