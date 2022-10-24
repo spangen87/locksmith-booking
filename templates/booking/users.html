@@ -14,6 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 mx-auto text-center">
+            <!-- Shows all user to staff members. Buttons to delete and give staff permission or remove it. -->
             {% if user.is_staff %}
             <a href="{% url 'reviews' %}" class="btn btn-secondary btn-lg">All Reviews</a>
             <a href="{% url 'users' %}" class="btn btn-secondary btn-lg disabled">All Users</a>

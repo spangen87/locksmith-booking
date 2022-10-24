@@ -5,6 +5,7 @@
 
 <div class="row">
     <div class="col-md-4 mx-auto">
+      <!-- Checks that user has access and then presents the form  -->
         {% if user.is_authenticated %}
         <h3>Edit your booking</h3>
         <form method="post" style="margin-top: 1.3em;">

@@ -6,6 +6,9 @@ import datetime
 
 
 class PlaceBooking(models.Model):
+    """
+    Model for storing the bookings to the database
+    """
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='bookings'
         )
@@ -33,6 +36,9 @@ class PlaceBooking(models.Model):
 
 
 class Review(models.Model):
+    """
+    Model for storing the reviews to the database
+    """
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='reviews'
         )

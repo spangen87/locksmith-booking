@@ -9,7 +9,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Locksmith Booking</title>
+  <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Importing Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
@@ -45,6 +47,7 @@
               data-bs-toggle="dropdown" aria-expanded="false">
               Account
             </a>
+            <!-- Shows different dropdown depending or your role as logged in user -->
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {% if user.is_authenticated and user.is_staff %}
               <li><a class="dropdown-item" href="{% url 'my_account' %}">Dashboard</a></li>
@@ -61,6 +64,7 @@
           </li>
         </ul>
       </div>
+      <!-- Show that user are logged in the top right corner and what username -->
       {% if user.is_authenticated %}
       <span class="pull-right">
         Logged in as: <strong>{{ user.username }}</strong>
