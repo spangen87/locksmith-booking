@@ -1,6 +1,9 @@
 # Locksmith Booking
 This is a booking application for a locksmith. When you have problems with your door or lock you can book a visit. 
-The locksmith will then confirm your booking or call to get additional details.
+The locksmith will then confirm your booking or call to get additional details when needed.
+The application was created with a real need in mind, and Best Lås is a real company.
+It is build in three parts, an informational part that every visitor can access. A part for logged in users where they can place a booking or give a review of the work.
+And the dashboard part that is for staff members only. 
 
 Welcome to [Locksmith Booking](https://locksmith-booking.herokuapp.com/)!
 
@@ -33,7 +36,7 @@ Welcome to [Locksmith Booking](https://locksmith-booking.herokuapp.com/)!
 ## User Experience
 ### User Stories
 #### Site User
-- As a user I can want the ability to request a callback before the visit so that I can give more information and receive information.
+- As a user I can have the ability to request a callback before the visit so that I can give more information and receive information.
 - As a user I can have a confirmation so that I know the booking worked.
 - As a user I can cancel my booking if I don't need it anymore.
 - As a user I can edit my booking so that I can change time or give more information.
@@ -51,6 +54,7 @@ Welcome to [Locksmith Booking](https://locksmith-booking.herokuapp.com/)!
 - As a admin I can move an appointment so that I can keep my schedule.
 - As a admin I can mark a booking as finished so that I know what's left to do.
 
+[Back to top](#contents)
 ### Agile Methodology
 #### GitHub Project Board
 I this project I used GitHubs project board to keep track of my user stories. This was helpful for a bigger project like this so i could break down every user story to smaller pieces,
@@ -63,7 +67,7 @@ This project is done by my self alone, but I understand that this tool would be 
 [Back to top](#contents)
 ### Wireframes
 Before I started the project I did some wireframes to give me some visuals of what I wanted. This was of big help when I started developing. The wireframes and the live version differs some, and there is some more features
-in the live version that came up along the way. It takes some time to do these. But it will save alot of time in the devloping process if you have a picture of how you want it to look in the end.
+in the live version that came up along the way. It took some time to do these. But it will save alot of time in the devloping process if you have a picture of how you want it to look in the end.
 ![Index](static/images/readme_images/Index.png)
 ![Booking when signed in](static/images/readme_images/Booking%2C%20when%20signed%20in.png)
 ![Booking when logged out](static/images/readme_images/Booking%2C%20when%20not%20signed%20in.png)
