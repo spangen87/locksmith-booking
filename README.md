@@ -61,7 +61,7 @@ This project is done by my self alone, but I understand that this tool would be 
 
 
 [Back to top](#contents)
-### Wireframes/Flowchart
+### Wireframes
 Before I started the project I did some wireframes to give me some visuals of what I wanted. This was of big help when I started developing. The wireframes and the live version differs some, and there is some more features
 in the live version that came up along the way. It takes some time to do these. But it will save alot of time in the devloping process if you have a picture of how you want it to look in the end.
 ![Index](static/images/readme_images/Index.png)
@@ -70,6 +70,13 @@ in the live version that came up along the way. It takes some time to do these. 
 ![Signup](static/images/readme_images/Signup.png)
 ![My account](static/images/readme_images/My%20account.png)
 ![Dashboard](static/images/readme_images/Admin%20dashboard.png)
+
+### Database
+To create the database schema i used a tool called [drawSQL](https://drawsql.app/). It had a prebuilt template with djangos standard tables that are created when starting a new app.
+I added my two models, PlaceBooking and Review, that are used for handling the bookings and the reviews. They both have a foreign key that connects to the built in user model.
+Unfortunately you can't do custom field names in drawSQL, so some fields in the picture does not show exactly what is used. On those fields there is a chatt bubble showing that there is a note.
+
+![Database](static/images/readme_images/database_schema.jpg)
 
 
 ### Design
@@ -237,11 +244,12 @@ The login page is also from the authentication module allauth. I imported the te
 - [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to test responsiveness and debug.
 - [Balsamiq](https://balsamiq.com/) - Used to create the wireframes for the project.
 - [Cloudinary](https://cloudinary.com/) - Used to host all static files and images.
-- [Heroku](https://dashboard.heroku.com) - Used to deploy the website
-- [PEP8 Validation](http://pep8online.com/) - Used to validate Python code
-- [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
-- [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
-- [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
+- [Heroku](https://dashboard.heroku.com) - Used to deploy the website.
+- [PEP8 Validation](http://pep8online.com/) - Used to validate Python code.
+- [HTML Validation](https://validator.w3.org/) - Used to validate HTML code.
+- [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code.
+- [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code.
+- [drawSQL](https://drawsql.app/) - Used to draw the database schema.
 
 [Back to top](#contents)
 ### Libraries
