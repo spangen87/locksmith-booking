@@ -43,11 +43,6 @@ def place_booking(request):
             messages.success(request, 'Booking placed successfully.\
                  Please allow up to 24 hours for callback.')
             return redirect('place_booking')
-        else:
-            messages.error(
-                request, 'Review must contain valid text. Try again.'
-                )
-            return redirect('place_booking')
     else:
         form = BookingForm()
     return render(request, 'booking/place_booking.html', {'form': form})
