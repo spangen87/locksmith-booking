@@ -17,6 +17,12 @@ class TimeInput(forms.TimeInput):
 
 
 class BookingForm(forms.ModelForm):
+    """
+    Presents the booking form to the user.
+    Make sure dates to choose from is at
+    least two days in future, and a maximum
+    of 30 days.
+    """
     class Meta:
         model = PlaceBooking
         fields = ('first_name',
@@ -37,6 +43,13 @@ class BookingForm(forms.ModelForm):
 
 
 class EditBooking(forms.ModelForm):
+    """
+    The same as place booking form above.
+    But without the restrictions of at least
+    two days in the future. That because a
+    staff member should be able to update
+    the booking after that if needed.
+    """
     class Meta:
         model = PlaceBooking
         fields = ('first_name',
@@ -48,12 +61,18 @@ class EditBooking(forms.ModelForm):
                   'date_for_visit',
                   'time_for_visit',)
         widgets = {
-            'date_for_visit': DateInput(attrs={'min': datetime.date.today()}),
+            'date_for_visit': DateInput(attrs={
+                'min': datetime.date.today(),
+                'max': datetime.date.today()+datetime.timedelta(days=30)}),
             'time_for_visit': TimeInput()
         }
 
 
 class ReviewForm(forms.ModelForm):
+    """
+    Presents the form for placing a review
+    to the user.
+    """
     class Meta:
         model = Review
         fields = ('review',)
