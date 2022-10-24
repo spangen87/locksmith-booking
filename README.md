@@ -351,6 +351,14 @@ Below is an example of test and how you can change device, in this case an Ipad 
 
 ![Responsiveness](static/images/readme_images/responsive_dev_tools.jpg)
 
+### Browser Testing
+The website is tested on the following browsers with no known issues:
+- Mozilla Firefox
+- Google Chrome (desktop and mobile version)
+- Microsoft Edge
+- Safari for iOS
+
+[Back to top](#contents)
 ### Manual testing
 Alot of testing has been done of the website. The testing has been done by myself, my mentor and some friends and colleagues.
 Trying different inputs to forms, clicking links, entering URLs manually, making inputs, edit and deleting them.
@@ -417,9 +425,9 @@ The steps for deploying through [Heroku](https://heroku.com/) is as follows:
 
 ![Fifth step](static/images/readme_images/heroku-5th.jpg)
 
-14. Add config vars that are necessary. In this project it was a couple more, but they contain sensitive information.
+14. Add config vars that are necessary. I'm not showing the keys beacuase they are secret.
 
-![Sixth step](static/images/readme_images/heroku-6th.jpg)
+![Sixth step](static/images/readme_images/config_vars.jpg)
 
 15. Add the buildpacks needed.
 
